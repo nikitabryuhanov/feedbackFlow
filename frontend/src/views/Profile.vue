@@ -1,13 +1,13 @@
 <template>
-  <div class="max-w-md mx-auto mt-20 p-6 bg-white rounded shadow">
-    <h2 class="text-2xl font-bold mb-4">Личный кабинет</h2>
+  <div class="max-w-md mx-auto mt-20 p-6 bg-white rounded shadow text-lg">
+    <h2 class="text-2xl font-bold mb-4 text-center">Личный кабинет</h2>
     <form @submit.prevent="saveProfile" class="space-y-4">
       <div>
-        <label class="block mb-1 font-semibold">Email</label>
+        <label class="block mb-1 font-semibold text-left">Email</label>
         <input v-model="email" type="email" class="w-full p-2 border rounded" required />
       </div>
       <div>
-        <label class="block mb-1 font-semibold">Ник</label>
+        <label class="block mb-1 font-semibold text-left">Ник</label>
         <input v-model="username" type="text" class="w-full p-2 border rounded" required />
       </div>
       <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Сохранить</button>
