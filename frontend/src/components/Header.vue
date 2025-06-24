@@ -1,11 +1,16 @@
 <template>
-  <header class="w-full bg-blue-700 text-white py-4 px-4 flex flex-col items-center shadow gap-2">
-    <span class="font-thin text-xl">FeedbackFlow</span>
-    <span v-if="user" class="mb-2">Добро пожаловать, {{ user.username }}!</span>
-    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-      <button v-if="user && user.role !== 'Admin'" @click="goProfile" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Личный кабинет</button>
-      <button v-if="user && user.role !== 'Admin'" @click="goDashboard" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Мои заявки</button>
-      <button v-if="showLogout && user && user.role === 'Admin'" @click="logout" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Выйти</button>
+  <header class="w-full bg-blue-700 text-white py-4 px-4 flex flex-col sm:flex-row items-center sm:justify-between shadow gap-2">
+    <span class="font-thin text-xl w-full text-center sm:w-auto">FeedbackFlow</span>
+    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 sm:ml-auto">
+      <span v-if="user" class="mb-2 sm:mb-0 sm:mr-4">Добро пожаловать, {{ user.username }}!</span>
+      <template v-if="user && user.role !== 'Admin'">
+        <button @click="goProfile" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Личный кабинет</button>
+        <button @click="goDashboard" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Мои заявки</button>
+        <button @click="logout" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Выйти</button>
+      </template>
+      <template v-else-if="showLogout && user && user.role === 'Admin'">
+        <button @click="logout" class="bg-white text-blue-700 px-4 py-2 rounded hover:bg-gray-100">Выйти</button>
+      </template>
     </div>
   </header>
 </template>
